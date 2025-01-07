@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components/native';
 import HomeScreen from './src/screens/HomeScreen.js';
 import DetailsScreen from './src/screens/DetailScreen.js';
 import FirstScreen from './src/screens/FirstScreen.js';
+import LogInScreen from './src/screens/LogInScreen.js';
 
 
 const Stack = createStackNavigator();
@@ -20,6 +21,7 @@ const App = () => {
         <Stack.Screen options={{headerShown: false,}} name="Pitch" component={FirstScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Log in" component={LogInScreen} />
       </Stack.Navigator>
     </NavigationContainer>
     </ThemeProvider>
