@@ -1,54 +1,31 @@
 import React, { useState } from 'react';
-import { View, Text, Alert } from 'react-native';
-// import CheckBox from '@react-native-community/checkbox';
+import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
-import { Divider } from 'react-native-elements';
 import {
     MainButton,
     MainButtonText,
     TitleText,
     MainInputForm,
     CheckBox,
-    SocialButton
 } from '../styles/GlobalStyles.js';
+
 
 const LogInScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isFocused, setIsFocused] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     return (
-        <View
-            style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: '#FFFFFF',
-                margin: 1,
-                padding: 1,
-
-            }}
-        >
-            <View style={{ alignItems: 'center' }}>
-                <TitleText style={{ fontSize: 30 }}>Learning App</TitleText>
-                <Text
-                    style={{
-                        margin: 10,
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                        color: '#874ECF',
-                        fontWeight: 'bold',
-                        width: 300,
-                        fontSize: 16
-                    }}
-                >
+        <View style={styles.container}>
+            <View style={styles.headerContainer}>
+                <TitleText style={styles.title}>Learning App</TitleText>
+                <Text style={styles.subtitle}>
                     Enter your log in details to access your account
                 </Text>
             </View>
-            <View style={{ margin: 10 }}>
 
+            <View style={styles.inputContainer}>
                 <MainInputForm
                     placeholder="Enter your email"
                     value={email}
@@ -66,46 +43,124 @@ const LogInScreen = ({ navigation }) => {
                     selectionColor="transparent"
                     secureTextEntry
                 />
-                <View style={{ flexDirection: 'row', margin: 5, marginLeft: 0, alignItems: 'center', justifyContent: 'space-between' }}>
+
+                <View style={styles.checkboxContainer}>
                     <CheckBox
                         isChecked={isChecked}
                         onPress={() => setIsChecked(!isChecked)}
                         label="Remember Me?"
                     />
-                    <Text style={{ color: '#E8505B' }}>Forgot password?</Text>
+                    <Text style={styles.forgotPasswordText}>Forgot password?</Text>
                 </View>
-
-
             </View>
 
-
-            <MainButton style={{ margin: 10 }} onPress={() => navigation.navigate('Home')}>
-                <MainButtonText >Log In</MainButtonText>
+            <MainButton
+                style={styles.loginButton}
+                onPress={() => navigation.navigate('Home')}
+            >
+                <MainButtonText>Log In</MainButtonText>
             </MainButton>
 
-            <Text style={{ color: '#959595', margin: 10 }}>------------------- Or -------------------</Text>
+            <Text style={styles.orText}>
+                ------------------- Or -------------------
+            </Text>
 
-            <View style={{
-                flexDirection: 'colomn', justifyContent: 'space-between', margin: 10
-            }}>
-                <MainButton style={{ margin: 5, marginTop: 0, backgroundColor: '#E8505B', flexDirection: 'row' }}>
-                    <Icon name="google" size={14} color="#fff" style={{margin:10}}/>
+            <View style={styles.socialButtonsContainer}>
+                <MainButton style={[styles.socialButton, styles.googleButton]}>
+                    <Icon name="google" size={14} color="#fff" style={styles.icon} />
                     <MainButtonText>Google</MainButtonText>
                 </MainButton>
 
-                <MainButton style={{ margin: 5, marginBottom: 0, backgroundColor: '#5C7BD2', flexDirection: 'row' }}>
-                <Icon name="facebook" size={14} color="#fff" style={{margin:10}} />
+                <MainButton style={[styles.socialButton, styles.facebookButton]}>
+                    <Icon name="facebook" size={14} color="#fff" style={styles.icon} />
                     <MainButtonText>Facebook</MainButtonText>
                 </MainButton>
-
-            </View>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', margin: 20 }}>
-                <Text style={{ color: '#874ECF' }}>Don't have an account?</Text>
-                <Text style={{ color: '#5C7BD2' }}> Create account</Text>
             </View>
 
+            <View style={styles.footerContainer}>
+                <Text style={styles.footerText}>Don't have an account?</Text>
+                <Text style={styles.createAccountText}> Create account</Text>
+            </View>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF',
+        margin: 1,
+        padding: 1,
+    },
+    headerContainer: {
+        alignItems: 'center',
+    },
+    title: {
+        fontSize: 30,
+    },
+    subtitle: {
+        margin: 10,
+        justifyContent: 'center',
+        textAlign: 'center',
+        color: '#874ECF',
+        fontWeight: 'bold',
+        width: 300,
+        fontSize: 16,
+    },
+    inputContainer: {
+        margin: 10,
+    },
+    checkboxContainer: {
+        flexDirection: 'row',
+        margin: 5,
+        marginLeft: 0,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    forgotPasswordText: {
+        color: '#E8505B',
+    },
+    loginButton: {
+        margin: 10,
+    },
+    orText: {
+        color: '#959595',
+        margin: 10,
+    },
+    socialButtonsContainer: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        margin: 10,
+    },
+    socialButton: {
+        margin: 5,
+        flexDirection: 'row',
+    },
+    googleButton: {
+        marginTop: 0,
+        backgroundColor: '#E8505B',
+    },
+    facebookButton: {
+        marginBottom: 0,
+        backgroundColor: '#5C7BD2',
+    },
+    icon: {
+        margin: 10,
+    },
+    footerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        margin: 20,
+    },
+    footerText: {
+        color: '#874ECF',
+    },
+    createAccountText: {
+        color: '#5C7BD2',
+    },
+});
 
 export default LogInScreen;

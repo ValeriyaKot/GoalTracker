@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { Platform, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { css } from 'styled-components/native';
 
 
 const shadowStyle = Platform.select({
@@ -12,8 +13,11 @@ const shadowStyle = Platform.select({
         shadowRadius: 8,
     },
     android: {
-        elevation: 6,
+        elevation: 10,
     },
+    web: {
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    }
 });
 
 
@@ -56,7 +60,7 @@ export const MainInputForm = styled.TextInput`
     margin-left: 0px;
     margin-right: 0px;
     border-color: ${(props) => (props.isFocused ? '#D93D59' : '#874ECF')};
-    background-color: #fff;
+    background-color: ${(props) => props.theme.colors.white};
 
 `;
 
@@ -69,6 +73,7 @@ export const SocialButton = styled.TouchableOpacity`
     border-style: solid;
     border-color: transparent;
     margin: 5px;
+    ${shadowStyle};
     `
 
 const CheckBoxContainer = styled.View`
@@ -104,7 +109,37 @@ export const CheckBox = ({ isChecked, onPress, label }) => (
     </TouchableOpacity>
   );
 
+export const CourseItemBox = styled.TouchableOpacity `
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    border-color: transparent;
+    background-color: ${(props) => props.theme.colors.white};
+    margin: 10px;
+    ${shadowStyle};
+`;
 
+export const CourseImageItem = styled.Image `
+    width: 150px;
+    height: 75px;
+`
+
+export const MyCourseItemBox = styled.TouchableOpacity `
+    flex-direction: row;
+    align-items: center;
+    width: 330px;
+    height: 150px;
+    border-style: solid;
+    border-color: transparent;
+    background-color: ${(props) => props.theme.colors.white};
+    margin: 10px;
+    ${shadowStyle};
+`;
+
+export const MyCourseImageItem = styled.Image `
+    width: 150px;
+    height: 150px;
+`
 export const theme = {
     colors: {
         primary: '#874ECF',
