@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import {
-    MainButton,
-    MainButtonText,
-    TitleText,
-} from '../styles/GlobalStyles.js';
+import { View, Text, StyleSheet } from 'react-native';
+import {TitleText } from '../styles/GlobalStyles.js';
 import DropDownPicker from 'react-native-dropdown-picker';
 import CourseItem from '../components/CourseItem.jsx';
 
@@ -70,7 +66,7 @@ const BookCourseScreen = ({ navigation }) => {
                 </View>
             </View>
             <View style={{
-                margin: 10,
+                // margin: 10,
                 flex: 1,
                 alignItems: 'center',
                 width: '100%',
@@ -78,24 +74,21 @@ const BookCourseScreen = ({ navigation }) => {
                 overflow: 'auto',
             }}>
                 {course ? (
-                    <View style={{ justifyContent: 'center', alignItems: 'baseline' }}>
-                        <TitleText key={course.value} style={{ alignItems: 'baseline', justifyContent: 'center', marginHorizontal: 20 }}>
+                    <View style={{ margin: 5 }}>
+                        <TitleText key={course.value}>
                             {courses.find(c => c.value === course)?.label || 'Selected Course'}
                         </TitleText>
-                        <View style={styles.courseContainer}>
-                            <CourseItem />
-                        </View>
                     </View>
                 ) : (
-                    <View style={{ justifyContent: 'center', alignItems: 'baseline' }}>
-                        <TitleText style={{ alignItems: 'baseline', justifyContent: 'center', marginHorizontal: 20 }}>
+                    <View style={{ margin: 5 }}>
+                        <TitleText>
                             All Courses
                         </TitleText>
-                        <View style={styles.courseContainer}>
-                            <CourseItem />
-                        </View>
                     </View>
                 )}
+                <View style={styles.courseContainer}>
+                    <CourseItem />
+                </View>
             </View>
         </View>
     );
@@ -128,9 +121,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 5
     },
     courseContainer: {
-        margin: 10,
+        margin: 5,
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'center',
         width: '100%',
         height: '60vh',
         overflow: 'auto',

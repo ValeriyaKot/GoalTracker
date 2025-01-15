@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { Platform, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { css } from 'styled-components/native';
+
 
 
 const shadowStyle = Platform.select({
@@ -36,6 +36,23 @@ export const MainButtonText = styled.Text`
   color: ${(props) => props.theme.colors.white};
   font-size: ${(props) => props.theme.fontSizes.medium};
 `;
+
+export const AccountButton = styled.TouchableOpacity`
+  background-color: #fff;
+  width: 300px;
+  height: 40px;
+  min-height: 40px;
+  align-items: baseline;
+  justify-content: center;
+`;
+
+export const AccountButtonText = styled.Text`
+  color: ${(props) => props.theme.colors.primary};
+  font-size: ${(props) => props.theme.fontSizes.large};
+  /* margin-left: 10; */
+`;
+
+
 
 export const FirstScreenImage = styled.Image`
   width: 200px;
@@ -122,6 +139,12 @@ export const CourseItemBox = styled.TouchableOpacity `
 export const CourseImageItem = styled.Image `
     width: 150px;
     height: 75px;
+`
+
+export const AvatarImageItem = styled.Image `
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
 `
 
 export const MyCourseItemBox = styled.TouchableOpacity `

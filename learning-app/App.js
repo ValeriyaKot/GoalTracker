@@ -13,6 +13,7 @@ import FirstScreen from './src/screens/FirstScreen.js';
 import LogInScreen from './src/screens/LogInScreen.js';
 import MyCoursesScreen from './src/screens/MyCourses.js';
 import BookCourseScreen from './src/screens/BookCourseScreen.js';
+import AccountScreen from './src/screens/AccountScreen.js';
 
 
 import { Ionicons } from '@expo/vector-icons';
@@ -42,8 +43,8 @@ const HomeTabNavigator = () => {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'My Courses') {
             iconName = focused ? 'book' : 'book-outline';
-          } else if (route.name === 'Book Course') {
-            iconName = focused ? 'calendar' : 'calendar-outline';
+          } else if (route.name === 'Account') {
+            iconName = focused ? 'person' : 'person-outline';
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -53,7 +54,8 @@ const HomeTabNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="My Courses" component={MyCoursesStackNavigator} />
-      <Tab.Screen name="Book Course" component={BookCourseStackNavigator} />
+      <Tab.Screen name="Account" component={AccountStackNavigator} />
+
     </Tab.Navigator>
   );
 };
@@ -63,6 +65,11 @@ const HomeStackNavigator = () => (
     <Stack.Screen
       name="Home"
       component={HomeScreen}
+      options={styles.header}
+    />
+    <Stack.Screen
+      name="Book Course"
+      component={BookCourseScreen}
       options={styles.header}
     />
   </Stack.Navigator>
@@ -78,11 +85,11 @@ const MyCoursesStackNavigator = () => (
   </Stack.Navigator>
 );
 
-const BookCourseStackNavigator = () => (
+const AccountStackNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
-      name="Book Course"
-      component={BookCourseScreen}
+      name="Account"
+      component={AccountScreen}
       options={styles.header}
     />
   </Stack.Navigator>
@@ -112,6 +119,11 @@ const App = () => {
             options={styles.header}
             name="Log in"
             component={LogInScreen}
+          />
+          <Stack.Screen
+            options={styles.header}
+            name="Book Course"
+            component={BookCourseScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
