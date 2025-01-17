@@ -1,6 +1,6 @@
 import React from 'react';
 import { AccountButton, AccountButtonText} from '../styles/GlobalStyles.js';
-import { FlatList, View, Text, StyleSheet, Dimensions, Platform } from 'react-native';
+import { FlatList, View, StyleSheet } from 'react-native';
 
 
 import { Ionicons } from '@expo/vector-icons';
@@ -27,9 +27,6 @@ const AccountButtomItem = () => {
                     </View>
                 )}
                 keyExtractor={(item) => item.id}
-                showsVerticalScrollIndicator={false}
-                scrollEnabled={false}
-                nestedScrollEnabled={false}
             />
         </View>
     );

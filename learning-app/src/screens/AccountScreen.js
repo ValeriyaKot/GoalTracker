@@ -29,12 +29,14 @@ const AccountScreen = ({ navigation }) => {
 
             <View style={styles.centerContent}>
                 <AccountButtonItem />
-                <View style={styles.deleteAccountContainer}>
-                    <AccountButton title="Delete account">
-                        <AccountButtonText style={{ color: '#E33E56' }}>Delete account</AccountButtonText>
-                    </AccountButton>
-                </View>
             </View>
+
+            <View style={styles.deleteAccountContainer}>
+                <AccountButton title="Delete account">
+                    <AccountButtonText style={{ color: '#E33E56' }}>Delete account</AccountButtonText>
+                </AccountButton>
+            </View>
+
 
             <View style={styles.bottomContainer}>
                 <MainButton style={{ margin: 10 }} title="Log out" >
@@ -73,20 +75,21 @@ const styles = StyleSheet.create({
     },
     deleteAccountContainer: {
         alignItems: 'center',
-        marginTop: 20,
+        justifyContent: 'center',
     },
     centerContent: {
-        flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         marginHorizontal: 20,
         marginVertical: 20,
-        paddingBottom: 40,
+        height: 200
     },
     bottomContainer: {
+        flex: 1,
         justifyContent: 'flex-end',
         backgroundColor: '#FFFFFF',
         paddingVertical: 20,
+
     }
 });
 
