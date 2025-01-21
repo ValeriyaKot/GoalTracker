@@ -66,7 +66,6 @@ const BookCourseScreen = ({ navigation }) => {
                 </View>
             </View>
             <View style={{
-                // margin: 10,
                 flex: 1,
                 alignItems: 'center',
                 width: '100%',

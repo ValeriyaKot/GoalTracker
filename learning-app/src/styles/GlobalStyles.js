@@ -49,7 +49,6 @@ export const AccountButton = styled.TouchableOpacity`
 export const AccountButtonText = styled.Text`
   color: ${(props) => props.theme.colors.primary};
   font-size: ${(props) => props.theme.fontSizes.large};
-  /* margin-left: 10; */
 `;
 
 
@@ -57,7 +56,7 @@ export const AccountButtonText = styled.Text`
 export const FirstScreenImage = styled.Image`
   width: 200px;
   height: 200px;
-  border-radius: 10px; /* пример добавления радиуса */
+  border-radius: 10px; 
 `;
 
 export const TitleText = styled.Text`

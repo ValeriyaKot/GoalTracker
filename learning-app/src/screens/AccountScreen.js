@@ -13,7 +13,7 @@ const data = [
 ];
 
 
-const AccountScreen = ({ navigation }) => {
+const AccountScreen = () => {
     return (
         <View style={styles.container}>
 

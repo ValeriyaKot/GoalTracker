@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Fontisto';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import {
     MainButton,
     MainButtonText,
@@ -14,6 +14,7 @@ const LogInScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isFocused, setIsFocused] = useState(false);
+    const [isFocusedPas, setIsFocusedPas] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
 
     return (
@@ -42,6 +43,9 @@ const LogInScreen = ({ navigation }) => {
                     onChangeText={setPassword}
                     selectionColor="transparent"
                     secureTextEntry
+                    onFocus={() => setIsFocusedPas(true)}
+                    onBlur={() => setIsFocusedPas(false)}
+                    isFocused={isFocusedPas}
                 />
 
                 <View style={styles.checkboxContainer}>
@@ -67,12 +71,12 @@ const LogInScreen = ({ navigation }) => {
 
             <View style={styles.socialButtonsContainer}>
                 <MainButton style={[styles.socialButton, styles.googleButton]}>
-                    <Icon name="google" size={14} color="#fff" style={styles.icon} />
+                <Ionicons name="logo-google" size={20} color="white" style={{marginHorizontal: 5}} />
                     <MainButtonText>Google</MainButtonText>
                 </MainButton>
 
                 <MainButton style={[styles.socialButton, styles.facebookButton]}>
-                    <Icon name="facebook" size={14} color="#fff" style={styles.icon} />
+                <Ionicons name="logo-facebook" size={20} color="white" style={{marginHorizontal: 5}} />
                     <MainButtonText>Facebook</MainButtonText>
                 </MainButton>
             </View>

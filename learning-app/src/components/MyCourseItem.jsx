@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MyCourseItemBox, MyCourseImageItem } from '../styles/GlobalStyles.js';
-import { FlatList, View, Text, StyleSheet, Dimensions, Platform } from 'react-native';
+import { FlatList, View, Text, StyleSheet } from 'react-native';
 import * as Progress from "react-native-progress";
 
 const data = [

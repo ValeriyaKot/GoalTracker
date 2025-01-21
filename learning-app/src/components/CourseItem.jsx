@@ -1,6 +1,6 @@
 import React from 'react';
 import { CourseItemBox, CourseImageItem } from '../styles/GlobalStyles.js';
-import { FlatList, View, Text, StyleSheet, Dimensions, Platform } from 'react-native';
+import { FlatList, View, Text, StyleSheet } from 'react-native';
 
 const data = [
     { id: '1', title: 'Item 1' },
